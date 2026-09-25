@@ -4,36 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot - Enter Your API Key</title>
+    <title>AI Chatbot</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>AI Chatbot</h1>
-        <div id="privacy-notice">
-            <h2>Privacy Notice</h2>
-            <p>This web page allows you to use your own API key for AI services (e.g., OpenRouter, Experimental AI).
-                Your API key is visible to you in the browser and is not stored by Render or any server. You are
-                responsible for keeping your API key secure.</p>
-            <p>By using this service, you agree that your API key will be used only for your own requests and that you
-                will not share it with others.</p>
+    <div class="app">
+        <!-- Landing / Setup Screen -->
+        <div id="setup-screen" class="screen active">
+            <div class="setup-card">
+                <div class="logo">
+                    <div class="logo-icon">✦</div>
+                    <h1>AI Chatbot</h1>
+                </div>
+
+                <div class="privacy-box">
+                    <h2>Privacy Notice</h2>
+                    <p>This web page lets you use your own API key for AI services (OpenRouter, OpenAI-compatible). Your
+                        API key is visible only to you in the browser and is <strong>not stored</strong> by Render or
+                        any server. You are responsible for keeping your API key secure.</p>
+                    <p>By using this service, you agree that your API key will be used only for your own requests and
+                        that you will not share it with others. When you close the tab, your session and API key are
+                        gone.</p>
+                </div>
+
+                <div class="setup-form">
+                    <input type="text" id="user-name" placeholder="Your name" autocomplete="off">
+                    <input type="password" id="api-key" placeholder="API key (sk-... or or-...)" autocomplete="off">
+                    <button id="start-chat" class="btn-primary">Start Chat</button>
+                    <p class="error-text" id="setup-error"></p>
+                </div>
+            </div>
         </div>
-        <div id="input-section">
-            <h2>Enter Your Details</h2>
-            <input type="text" id="user-name" placeholder="Your Name">
-            <input type="password" id="api-key" placeholder="API Key">
-            <button id="start-chat">Start Chat</button>
-        </div>
-        <div id="chat-interface" style="display: none;">
-            <h2>Chat with AI</h2>
-            <div id="chat-history"></div>
-            <div id="input-area">
-                <input type="text" id="message-input" placeholder="Type your message...">
-                <button id="send-button">Send</button>
+
+        <!-- Chat Screen -->
+        <div id="chat-screen" class="screen">
+            <header class="chat-header">
+                <div class="header-left">
+                    <button id="back-btn" class="icon-btn" title="Back">←</button>
+                    <div class="avatar">✦</div>
+                    <div class="header-info">
+                        <div class="header-title">AI Chatbot</div>
+                        <div class="header-subtitle" id="status-text">Connected</div>
+                    </div>
+                </div>
+                <button id="clear-btn" class="icon-btn" title="Clear chat">✕</button>
+            </header>
+
+            <div id="chat-history" class="chat-history">
+                <!-- Messages injected here -->
+            </div>
+
+            <div class="composer">
+                <input type="text" id="message-input" placeholder="Send a message..." autocomplete="off">
+                <button id="send-button" class="btn-send">↑</button>
             </div>
         </div>
     </div>
+
     <script src="app.js"></script>
 </body>
 
