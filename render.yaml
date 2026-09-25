@@ -1,0 +1,11 @@
+# Render deployment configuration for a static site
+# Deploy with: render.com -> New -> Static Site -> connect this repo
+# Or use the Render dashboard with this file present.
+
+service: static-site
+buildCommand: null
+startCommand: null
+publishDirectory: .
+envVars:
+  - key: NODE_ENV
+    value: production
